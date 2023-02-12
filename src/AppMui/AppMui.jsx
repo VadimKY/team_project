@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import { postData } from './posts.js'
 import PostList from "../PostList/PostList";
 import s from './AppMui.module.css';
-
+import Footer from "../Footer/Footer";
 
 
 const AppMui = () => {
@@ -15,6 +15,7 @@ const AppMui = () => {
             <Container className={s.containerAppMui}>
                 <PostList posts={postData} />
             </Container>
+            <Footer />
         </>
     );
 };
