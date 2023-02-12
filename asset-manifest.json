@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/team_project/static/css/main.aed694aa.css",
+    "main.js": "/team_project/static/js/main.0fa52f85.js",
+    "static/media/logo.svg": "/team_project/static/media/logo.4f9d699de55eb25e196ecc4c87a15a5e.svg",
+    "static/media/instagram.svg": "/team_project/static/media/instagram.956b8b96f88dffb83538a98dacc779f4.svg",
+    "static/media/vk.svg": "/team_project/static/media/vk.17dd338e025bd3d972d5b8c5afff447c.svg",
+    "static/media/viber.svg": "/team_project/static/media/viber.e04cf485c3b4afa1bdf4bd2837c534c8.svg",
+    "static/media/whatsapp.svg": "/team_project/static/media/whatsapp.e2a2770f97570bcc0c8ec3d91542ebcb.svg",
+    "index.html": "/team_project/index.html",
+    "static/media/telegram.svg": "/team_project/static/media/telegram.0482cc32b8264da43460df72f2a03373.svg",
+    "main.aed694aa.css.map": "/team_project/static/css/main.aed694aa.css.map",
+    "main.0fa52f85.js.map": "/team_project/static/js/main.0fa52f85.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aed694aa.css",
+    "static/js/main.0fa52f85.js"
+  ]
+}
