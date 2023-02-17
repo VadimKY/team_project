@@ -1,6 +1,11 @@
 .colorButton {
     margin-top: 7px !important;
+<<<<<<< HEAD
     margin-left: 10px !important;
     color: orangered !important;
     margin-right: 10px !important;
+=======
+    margin-left: 20px !important;
+    color: orangered !important;
+>>>>>>> db9c4765e936783f321c9811bb949f5344b2e90e
 }

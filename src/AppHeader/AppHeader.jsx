@@ -24,8 +24,14 @@ const AppHeader = () => {
                     aria-label="menu"
                     sx={{ mr: 2 }}>
                     <Menu sx={{color:  grey[900]}} />
+<<<<<<< HEAD
                 </IconButton>
                 <ColorButtons />
+=======
+
+                    <ColorButtons />
+                </IconButton>
+>>>>>>> db9c4765e936783f321c9811bb949f5344b2e90e
                 <SimpleDialogDemo />
             </Toolbar>
         </AppBar>
