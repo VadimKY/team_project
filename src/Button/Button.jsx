@@ -7,7 +7,7 @@ export default function ColorButtons() {
 
     function onButtonClickHandler() {
         return (
-            window.alert('Есть Котакт !!!')
+            window.alert('Есть Контакт !!!')
         );
     }
 
