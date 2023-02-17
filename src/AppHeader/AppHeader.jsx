@@ -3,6 +3,8 @@ import { AppBar, Toolbar, IconButton, Typography, Button } from '@mui/material';
 import {AccountBalanceSharp, Menu} from '@mui/icons-material';
 import { grey } from '@mui/material/colors';
 import s from "./AppHeader.module.css";
+import ColorButtons from "../Button/Button";
+import SimpleDialogDemo from "../Modal/Modal";
 
 
 const AppHeader = () => {
@@ -22,7 +24,9 @@ const AppHeader = () => {
                     sx={{ mr: 2 }}>
                     <Menu sx={{color:  grey[900]}} />
 
+                    <ColorButtons />
                 </IconButton>
+                <SimpleDialogDemo />
             </Toolbar>
         </AppBar>
     )
