@@ -1,6 +1,6 @@
 export const postData = [
     {
-        "image": "http://dummyimage.com/400x200.png/5fa2dd/ffffff",
+        "image": "https://w-dog.ru/wallpapers/2/18/487201292087199/sinij-zvezdy-planety.jpg",
         "likes": [],
         "comments": [],
         "tags": [
@@ -23,7 +23,7 @@ export const postData = [
         "__v": 0
     },
     {
-        "image": "http://dummyimage.com/400x200.png/ff4444/ffffff",
+        "image": "https://react-learning.ru/image-compressed/1.jpg",
         "likes": [],
         "comments": [],
         "tags": [

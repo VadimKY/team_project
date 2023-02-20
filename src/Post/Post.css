@@ -1,0 +1,23 @@
+.cards {
+    background-color: #fac929;
+}
+
+.cardHeaders {
+    background-color: #f69292;
+}
+
+.containerPost {
+    border-radius: 5% !important;
+    border-style: ridge;
+}
+
+.card__favorite {
+    fill: #CFD8DC !important;
+    stroke-width: 1px !important;
+    stroke: #7B8E98 !important;
+}
+
+.card__favorite_is-active {
+    fill: #F44336 !important;
+    stroke-width: 0 !important;
+}

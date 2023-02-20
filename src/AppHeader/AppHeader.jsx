@@ -13,8 +13,8 @@ const AppHeader = () => {
         <AppBar position="static">
 
             <Toolbar>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1, color:  grey[900]}}>
-                    Post
+                <Typography variant="h3" component="div" sx={{ flexGrow: 1, color:  grey[900]}}>
+                    В МирЕ ИнформациИ
                     <AccountBalanceSharp />
                 </Typography>
                 <IconButton

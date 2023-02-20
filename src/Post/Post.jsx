@@ -6,8 +6,12 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/ru';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import HoverRating from "../EstimationMui/EstimationMui";
-import s from './Post.module.css';
+//import s from './Post.module.css';
 import {purple, red} from '@mui/material/colors';
+import {isEmail, isLiked} from "../utils/api";
+import cn from "classnames";
+import './Post.css';
+
 
 dayjs.locale('ru');
 dayjs.extend(relativeTime);
@@ -23,8 +27,14 @@ const ExpandMoreStaled = styled((props) => {
 }));
 
 
-const Post = ({ image, title, author: {email, avatar}, text, created_at }) => {
+const Post = ({ image, title, cards, picture, author: {email, avatar, name}, text, created_at, onProductLike, currentUser, likes, _id, userIdData, usersId, handleUserInfoId}) => {
     const [expanded, setExpanded] = useState(false);
+    const liked = isLiked(likes, currentUser?._id);
+    const emailed = isEmail(email, currentUser?._id);
+
+    const handleLikeClick = () => {
+        onProductLike({_id, likes})
+    };
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -32,29 +42,32 @@ const Post = ({ image, title, author: {email, avatar}, text, created_at }) => {
     let background;
     return (
         <Grid container item xs={12} sm={6} md={4} lg={3} >
-            <Card className={s.containerPost}>
-                <CardHeader className={s.cardHeaders}
+            <Card className="containerPost">
+                <CardHeader className="cardHeaders"
                             avatar={
                                 <Avatar sx={{ bgcolor: purple[500] }}  aria-label='recipe'>
-                                    { email?.slice(0, 1).toUpperCase() }
+                                    <img src={avatar} alt='#' />
                                 </Avatar>
                             }
-                            title={email}
+                            title={name}
                             subheader={dayjs(created_at).fromNow()}
                 />
+
                 <CardMedia
                     component="img"
                     height="194"
                     image={image}
                     alt={`Изображение_${title}`}
                 />
-                <CardContent className={s.cards}>
+                <CardContent className={cards}>
                     <Typography variant="h5" component="h2" gutterBottom>{title}</Typography>
                     <Typography variant="body2" noWrap color="text.secondary">{text}</Typography>
                 </CardContent>
                 <CardActions disableSpacing>
                     <IconButton aria-label="add to favorites">
-                        <Favorite />
+                        <Favorite className={cn("card__favorite", {
+                            "card__favorite_is-active" : liked
+                        })} onClick={handleLikeClick} />
                     </IconButton>
 
                     <ExpandMoreStaled
