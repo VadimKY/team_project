@@ -12,6 +12,10 @@ import {isEmail, isLiked} from "../utils/api";
 import cn from "classnames";
 import './Post.css';
 
+import Button from "@mui/material/Button";
+import s from "../Button/Button.module.css";
+import Stack from "@mui/material/Stack";
+
 
 dayjs.locale('ru');
 dayjs.extend(relativeTime);
@@ -27,10 +31,17 @@ const ExpandMoreStaled = styled((props) => {
 }));
 
 
+
+
+const Post = ({ image, title, cards, author: {email, avatar, name}, text, created_at, onProductLike, currentUser, likes, _id}) => {
+    const [expanded, setExpanded] = useState(false);
+    const liked = isLiked(likes, currentUser?._id);
+
 const Post = ({ image, title, cards, picture, author: {email, avatar, name}, text, created_at, onProductLike, currentUser, likes, _id, userIdData, usersId, handleUserInfoId}) => {
     const [expanded, setExpanded] = useState(false);
     const liked = isLiked(likes, currentUser?._id);
     const emailed = isEmail(email, currentUser?._id);
+
 
     const handleLikeClick = () => {
         onProductLike({_id, likes})
@@ -67,8 +78,24 @@ const Post = ({ image, title, cards, picture, author: {email, avatar, name}, tex
                     <IconButton aria-label="add to favorites">
                         <Favorite className={cn("card__favorite", {
                             "card__favorite_is-active" : liked
+
+                        })}  onClick={handleLikeClick} />
+                    </IconButton>
+
+                    <div>{likes.length}</div>
+
+                    <Stack direction="row" spacing={2}>
+                        <Button variant="contained" color="secondary"  className="colorButton" >
+                            Удалить пост
+                        </Button>
+                    </Stack>
+
+
+
+
                         })} onClick={handleLikeClick} />
                     </IconButton>
+
 
                     <ExpandMoreStaled
                         expand={expanded}
