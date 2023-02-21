@@ -58,12 +58,12 @@ class Api {
 
 
 
-   // postUserDelete(postId) {
-    //    return fetch(`${this._baseUrl}/v2/:groupId/posts/${postId}`, {
-  //          method: 'DELETE',
-   //         headers: this._headers,
-  //      }).then(onResponse)
-   // }
+    postUserDelete(postId) {
+        return fetch(`${this._baseUrl}/posts/${postId}`, {
+            method: 'DELETE',
+            headers: this._headers,
+        }).then(onResponse)
+    }
 }
 
 const config = {

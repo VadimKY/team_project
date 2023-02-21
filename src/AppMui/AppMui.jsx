@@ -15,7 +15,7 @@ const AppMui = () => {
     const [cards, setCards] = useState( []);
     const [searchQuery, setSearchQuery] = useState('');
     const [currentUser, setCurrentUser] = useState(null);
-    const [usersId, setUsersId] = useState('');
+    const [usersDeleteId, setUsersDeleteId] = useState('');
    // const [isLoading, setIsLoading] = useState(false);
    // const debounceSearchQuery = useDebounce(searchQuery, 300);
 
@@ -33,9 +33,6 @@ const AppMui = () => {
     }, []);
 
 
-
-
-
     const handleProductLike = (post) => {
         //  const isLiked = product.likes.some(id => id === currentUser._id); // Ищем в массиве лайков текущего пользователя
         const liked = isLiked(post.likes, currentUser._id);
@@ -48,7 +45,6 @@ const AppMui = () => {
             setCards(newCards);
         })
     }
-
 
 
     return (

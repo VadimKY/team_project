@@ -21,3 +21,14 @@
     fill: #F44336 !important;
     stroke-width: 0 !important;
 }
+
+.colorButton {
+    margin-top: 7px !important;
+    margin-left: 80px !important;
+    color: #000000 !important;
+    margin-right: 10px !important;
+    max-width: 30px !important;
+    max-height: 30px !important;
+    font-size: 8px !important;
+    font-weight: bold !important;
+}
