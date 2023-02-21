@@ -8,12 +8,13 @@ import SimpleDialogDemo from "../Modal/Modal";
 
 
 const AppHeader = () => {
+
     return (
         <AppBar position="static">
 
             <Toolbar>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1, color:  grey[900]}}>
-                    Post
+                <Typography variant="h3" component="div" sx={{ flexGrow: 1, color:  grey[900]}}>
+                    В МирЕ ИнформациИ
                     <AccountBalanceSharp />
                 </Typography>
                 <IconButton
@@ -23,9 +24,8 @@ const AppHeader = () => {
                     aria-label="menu"
                     sx={{ mr: 2 }}>
                     <Menu sx={{color:  grey[900]}} />
-
-                    <ColorButtons />
                 </IconButton>
+                <ColorButtons />
                 <SimpleDialogDemo />
             </Toolbar>
         </AppBar>
