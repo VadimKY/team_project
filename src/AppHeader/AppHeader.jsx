@@ -13,9 +13,9 @@ const AppHeader = () => {
         <AppBar position="static">
 
             <Toolbar>
-                <Typography variant="h3" component="div" sx={{ flexGrow: 1, color:  grey[900]}}>
-                    В МирЕ ИнформациИ
-                    <AccountBalanceSharp />
+                <Typography variant="h3" component="div" sx={{ flexGrow: 1, color:  grey[900], fontWeight: 800}}>
+                        World-Star
+                    <h6>В Мире Информации <AccountBalanceSharp /></h6>
                 </Typography>
                 <IconButton
                     size="large"
