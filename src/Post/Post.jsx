@@ -8,7 +8,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import HoverRating from "../EstimationMui/EstimationMui";
 //import s from './Post.module.css';
 import {purple, red} from '@mui/material/colors';
-import {isEmail, isLiked} from "../utils/api";
+import { isLiked } from "../utils/api";
 import cn from "classnames";
 import './Post.css';
 import Button from "@mui/material/Button";
@@ -31,12 +31,19 @@ const ExpandMoreStaled = styled((props) => {
 
 
 
-const Post = ({ image, title, cards, author: {email, avatar, name}, text, created_at, onProductLike, currentUser, likes, _id}) => {
+const Post = ({ image, title, cards, author: {email, avatar, name}, text, created_at, id, handlePostUserDelete, onProductLike, currentUser, likes, _id}) => {
     const [expanded, setExpanded] = useState(false);
     const liked = isLiked(likes, currentUser?._id);
 
     const handleLikeClick = () => {
         onProductLike({_id, likes})
+    };
+
+    const handleUserDelete = (evt) => {
+        evt.preventDefault();
+
+        handlePostUserDelete(_id);
+        //deletePost();
     };
 
     const handleExpandClick = () => {
@@ -76,7 +83,7 @@ const Post = ({ image, title, cards, author: {email, avatar, name}, text, create
                     <div>{likes.length}</div>
 
                     <Stack direction="row" spacing={2}>
-                        <Button variant="contained" color="secondary"  className="colorButton" >
+                        <Button variant="outlined" color="secondary"  className="colorButton"  onClick={handleUserDelete}>
                             Удалить пост
                         </Button>
                     </Stack>

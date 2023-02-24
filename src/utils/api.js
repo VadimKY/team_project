@@ -3,7 +3,7 @@ const onResponse = (res) => {
 }
 
 export const isLiked = (likes, userId) => likes?.some(id => id === userId);
-export const isEmail = (email, userId) => email?.some(id => id === userId);
+//export const isDelete = (postId) => postId?.some(id => id === postId);
 
 class Api {
     constructor({baseUrl, headers}) {
@@ -58,12 +58,13 @@ class Api {
 
 
 
-    postUserDelete(postId) {
-        return fetch(`${this._baseUrl}/posts/${postId}`, {
+    postUserDelete(_id) {
+        return fetch(`${this._baseUrl}/posts/${_id}`, {
             method: 'DELETE',
-            headers: this._headers,
+            headers: this._headers
         }).then(onResponse)
     }
+
 }
 
 const config = {

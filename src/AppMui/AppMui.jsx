@@ -7,8 +7,9 @@ import PostList from "../PostList/PostList";
 import s from './AppMui.module.css';
 import Footer from "../Footer/Footer";
 import {useEffect, useState} from "react";
-import api from "../utils/api";
+import api, {isDelete} from "../utils/api";
 import {isLiked} from "../utils/api";
+import {render} from "react-dom";
 
 
 const AppMui = () => {
@@ -46,12 +47,58 @@ const AppMui = () => {
         })
     }
 
+    const refreshPage = ()=>{
+        window.location.reload();
+    };
+
+    const handlePostUserDelete = (post) => {
+        //  const isLiked = product.likes.some(id => id === currentUser._id); // Ищем в массиве лайков текущего пользователя
+       // alert(post)
+        const result = window.confirm("Удалить пост ?");
+        if (result === true) {
+            api.postUserDelete(post).then((newCard) => { // в зависимости от того есть ли лайки или нет отправляем 'DELETE' или 'PUT'
+                const newCards = cards.map((card) => {
+                    // console.log('Карточка в переборе', card);
+                    // console.log('Карточка с сервера', newCard);
+                    return card._id === newCard._id ? newCard : card;
+                })
+                setCards(newCards);
+            })
+            refreshPage();
+        }
+    };
+
+    // function handlePostUserDelete(postId) {
+    //    // setIsProcessLoading(true);
+    //    alert('Удалить?');
+    //     api.postUserDelete(postId.id)
+    //         .then(() => {
+    //            setCards(state => state.filter(c => c.id !== postId));
+    //
+    //         })
+    //         .catch((err) => {
+    //             console.log(`Ошибка в процессе удаления карточки из галереи: ${err}`);
+    //         })
+    //         .finally(() => {
+    //            // setIsProcessLoading(false);
+    //         })
+
+
+   // }
+
+
+
+
 
     return (
         <>
        <AppHeader />
-            <Container className={s.containerAppMui}>
-                <PostList posts={cards} currentUser={currentUser} onProductLike={handleProductLike} />
+            <Container className={s.containerAppMui} currentUser={currentUser}>
+                <PostList posts={cards}
+                          currentUser={currentUser}
+                          onProductLike={handleProductLike}
+                          handlePostUserDelete={handlePostUserDelete}
+                />
             </Container>
             <Footer />
         </>

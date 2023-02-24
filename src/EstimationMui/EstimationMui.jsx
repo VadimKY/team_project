@@ -3,6 +3,7 @@ import Rating from '@mui/material/Rating';
 import Box from '@mui/material/Box';
 import StarIcon from '@mui/icons-material/Star';
 import s from './EstimationMui.module.css';
+import {grey, red} from "@mui/material/colors";
 
 const labels = {
     0.5: 'Useless',
@@ -21,9 +22,13 @@ function getLabelText(value) {
     return `${value} Star${value !== 1 ? 's' : ''}, ${labels[value]}`;
 }
 
+const color = red[500];
+
 export default function HoverRating() {
     const [value, setValue] = React.useState(2);
     const [hover, setHover] = React.useState(-1);
+
+    const color = grey[900];
 
     return (
         <Box className={s.estimation}
@@ -33,7 +38,7 @@ export default function HoverRating() {
                  alignItems: 'center',
              }}
         >
-            <Rating
+            <Rating className={s.colors}
                 name="hover-feedback"
                 value={value}
                 precision={0.5}
@@ -47,7 +52,7 @@ export default function HoverRating() {
                 emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
             />
             {value !== null && (
-                <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
+                <Box sx={{ ml: 2, color: red[500] }}>{labels[hover !== -1 ? hover : value]}</Box>
             )}
         </Box>
     );
