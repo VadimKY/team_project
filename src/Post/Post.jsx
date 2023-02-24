@@ -14,6 +14,7 @@ import './Post.css';
 import Button from "@mui/material/Button";
 import s from "../Button/Button.module.css";
 import Stack from "@mui/material/Stack";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 dayjs.locale('ru');
@@ -82,10 +83,16 @@ const Post = ({ image, title, cards, author: {email, avatar, name}, text, create
 
                     <div>{likes.length}</div>
 
-                    <Stack direction="row" spacing={2}>
-                        <Button variant="outlined" color="secondary"  className="colorButton"  onClick={handleUserDelete}>
-                            Удалить пост
-                        </Button>
+                    <Stack direction="row" spacing={2} >
+                        {/*<Button variant="outlined" color="secondary"  className="colorButton"  onClick={handleUserDelete}>*/}
+                        {/*    Удалить пост*/}
+                        {/*</Button>*/}
+
+                        <IconButton aria-label="delete" size="large" className='postDelete'>
+                            <DeleteIcon fontSize="inherit" onClick={handleUserDelete} />
+                            {/*<h6 className='postDelete'>Удалить пост</h6>*/}
+                        </IconButton>
+
                     </Stack>
 
 
